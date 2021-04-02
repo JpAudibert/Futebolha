@@ -38,30 +38,4 @@ public class Player {
     public void setPosicaoTabuleiroColuna(int posicaoTabuleiroColuna) {
         this.posicaoTabuleiroColuna = posicaoTabuleiroColuna;
     }
-
-//    public static int getLinhaPlayer(char player) {
-//        int pos = -1;
-//        for (int i = 0; i < MAX_COLUNA; i++) {
-//            for (int j = 0; j < MAX_LINHA; j++) {
-//                if (campo[i][j] == player) {
-//                    pos = i;
-//                    return pos;
-//                }
-//            }
-//        }
-//        return pos;
-//    }
-//
-//    public static int getColunaPlayer(char player) {
-//        int pos = -1;
-//        for (int i = 0; i < MAX_LINHA; i++) {
-//            for (int j = 0; j < MAX_COLUNA; j++) {
-//                if (campo[i][j] == player) {
-//                    pos = j;
-//                    return pos;
-//                }
-//            }
-//        }
-//        return pos;
-//    }
 }
