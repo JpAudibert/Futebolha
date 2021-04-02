@@ -8,8 +8,6 @@ public class Futebolha {
     private static final int NUMERO_TIMES = 2;
     private static final int NUMERO_PLAYERS = 4;
 
-    private static char players[] = new char[30];
-
     public static void main(String[] args) {
         
         Jogo jogo = new Jogo(NUMERO_LINHA, NUMERO_COLUNA, NUMERO_TIMES, NUMERO_PLAYERS, TEMPO_PAUSA);
