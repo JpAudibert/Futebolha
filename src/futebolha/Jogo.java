@@ -48,6 +48,10 @@ public class Jogo {
     public char[][] getCampo() {
         return campo;
     }
+    
+    public void setCampo(char[][] campo){
+        this.campo = campo;
+    }
 
     private void limpaTela() {
         for (int i = 0; i < 25; i++) {
@@ -56,8 +60,8 @@ public class Jogo {
     }
 
     public char[][] criaCampo() {
-        this.campo = new char[numeroLinhas][numeroColunas];
-
+        char[][] campo = new char[numeroLinhas][numeroColunas];
+        
         for (int i = 0; i < numeroLinhas; i++) {
             for (int j = 0; j < numeroColunas; j++) {
                 campo[i][j] = ESPACO_LIVRE;
@@ -69,6 +73,7 @@ public class Jogo {
 
     public char[][] inicializaJogo() {
         char vetPos[] = {'A', 'a'};
+        char[][] campo = criaCampo();
 
         for (int p = 0; p < numeroTimes; p++) {
             for (int i = 0; i < numeroJogadores; i++) {  // time 1                
@@ -101,6 +106,7 @@ public class Jogo {
 
     public void mostraCampo() {
         limpaTela();
+        this.setCampo(inicializaJogo());
 
         for (int i = 0; i < numeroColunas; i++) {
             System.out.print(LINHA_PONTUACAO); // linha de pontuação
