@@ -3,34 +3,35 @@ package futebolha;
 public class Bola {
 
     private final char simboloBola = '@';
-    private int posicaoTabuleiroLinha;
-    private int posicaoTabuleiroColuna;
+    private int linha;
+    private int coluna;
 
     public Bola() {
     }
 
-    public Bola(int posicaoTabuleiroLinha, int posicaoTabuleiroColuna) {
-        this.posicaoTabuleiroLinha = posicaoTabuleiroLinha;
-        this.posicaoTabuleiroColuna = posicaoTabuleiroColuna;
+    public Bola(int linha, int coluna) {
+        this.linha = linha;
+        this.coluna = coluna;
     }
 
     public char getSimboloBola() {
         return simboloBola;
     }
 
-    public int getPosicaoTabuleiroLinha() {
-        return posicaoTabuleiroLinha;
+    public int getLinha() {
+        return linha;
     }
 
-    public void setPosicaoTabuleiroLinha(int posicaoTabuleiroLinha) {
-        this.posicaoTabuleiroLinha = posicaoTabuleiroLinha;
+    public void setLinha(int linha) {
+        this.linha = linha;
     }
 
-    public int getPosicaoTabuleiroColuna() {
-        return posicaoTabuleiroColuna;
+    public int getColuna() {
+        return coluna;
     }
 
-    public void setPosicaoTabuleiroColuna(int posicaoTabuleiroColuna) {
-        this.posicaoTabuleiroColuna = posicaoTabuleiroColuna;
+    public void setColuna(int coluna) {
+        this.coluna = coluna;
     }
+
 }
