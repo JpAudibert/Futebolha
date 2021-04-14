@@ -3,16 +3,16 @@ package futebolha;
 public class Player {
 
     private char identificao;
-    private int posicaoTabuleiroLinha;
-    private int posicaoTabuleiroColuna;
+    private int linha;
+    private int coluna;
 
     public Player() {
     }
 
-    public Player(char identificao, int posicaoTabuleiroLinha, int posicaoTabuleiroColuna) {
+    public Player(char identificao, int linha, int coluna) {
         this.identificao = identificao;
-        this.posicaoTabuleiroLinha = posicaoTabuleiroLinha;
-        this.posicaoTabuleiroColuna = posicaoTabuleiroColuna;
+        this.linha = linha;
+        this.coluna = coluna;
     }
 
     public char getIdentificao() {
@@ -23,19 +23,20 @@ public class Player {
         this.identificao = identificao;
     }
 
-    public int getPosicaoTabuleiroLinha() {
-        return posicaoTabuleiroLinha;
+    public int getLinha() {
+        return linha;
     }
 
-    public void setPosicaoTabuleiroLinha(int posicaoTabuleiroLinha) {
-        this.posicaoTabuleiroLinha = posicaoTabuleiroLinha;
+    public void setLinha(int linha) {
+        this.linha = linha;
     }
 
-    public int getPosicaoTabuleiroColuna() {
-        return posicaoTabuleiroColuna;
+    public int getColuna() {
+        return coluna;
     }
 
-    public void setPosicaoTabuleiroColuna(int posicaoTabuleiroColuna) {
-        this.posicaoTabuleiroColuna = posicaoTabuleiroColuna;
+    public void setColuna(int coluna) {
+        this.coluna = coluna;
     }
+
 }

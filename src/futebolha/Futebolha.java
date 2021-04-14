@@ -9,23 +9,24 @@ public class Futebolha {
     private static final int NUMERO_PLAYERS = 4;
 
     public static void main(String[] args) {
-        
+        boolean newGame = true;
         Jogo jogo = new Jogo(NUMERO_LINHA, NUMERO_COLUNA, NUMERO_TIMES, NUMERO_PLAYERS, TEMPO_PAUSA);
-        
-        //while (true) {
-        jogo.mostraCampo();
-        System.out.println();
-        
-        Player player = jogo.getPlayer('A');
-        Bola bola = jogo.getBola();
+        Client client = new Client();
 
-        System.out.println("ID: " + player.getIdentificao());
-        System.out.println("Linha: " + player.getPosicaoTabuleiroLinha());
-        System.out.println("Coluna: " + player.getPosicaoTabuleiroColuna());
+        jogo.mostraCampo(newGame);
+        newGame = false;
+        System.out.println("");
+        System.out.println("Próxima Jogada");
 
-        System.out.println("Linha Bola: " + bola.getPosicaoTabuleiroLinha());
-        System.out.println("Coluna Bola: " + bola.getPosicaoTabuleiroColuna());
+        while (!jogo.getAcabou()) {
+            jogo.mostraCampo(newGame);
 
-        //}
+            System.out.println("");
+            client.scanMovement();
+
+            if (jogo.waitForMovement(client.getPacket(), client.getSocket())) {
+                System.out.println("Jogada Executada");
+            }
+        }
     }
 }
