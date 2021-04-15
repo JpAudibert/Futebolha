@@ -288,7 +288,6 @@ public class Jogo {
 
             String message = new String(buffer, 0, packet.getLength());
             
-            System.out.println("Salim");
             if (message.startsWith("movePlayer(") && message.endsWith(");")) {
                 char player = getPlayerOrMoveFromMessage(message, 0);
                 char movement = getPlayerOrMoveFromMessage(message, 1);
