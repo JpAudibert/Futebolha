@@ -31,24 +31,23 @@ public class Client {
             System.out.println("Escolha um jogador e movimento (W, A, S, D)");
             Scanner scanner = new Scanner(System.in);
 
-            //while (scanner.hasNextLine()){
+            while (scanner.hasNextLine()){
                 String player = scanner.next();
                 String movement = scanner.next();
 
                 if (!player.equals("") && !movement.equals("")) {
                     StringBuilder play = new StringBuilder();
-                    play.append("movePlayer(");
+                    play.append("play(");
                     play.append(player);
                     play.append(",");
                     play.append(movement);
                     play.append(");");
 
                     sendMessage(play.toString());
-                    System.out.println("Jogada executada: " + play.toString());
                 }
 
                 Thread.sleep(500);
-            //}
+            }
             
             this.socket.close();
         } catch (Exception e) {
