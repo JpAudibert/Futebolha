@@ -19,13 +19,13 @@ public class Futebolha {
         System.out.println("Próxima Jogada");
 
         while (!jogo.getAcabou()) {
-            jogo.mostraCampo(newGame);
 
             System.out.println("");
             client.scanMovement();
 
-            if (jogo.waitForMovement(client.getPacket(), client.getSocket())) {
+            if (jogo.waitForMovement()) {
                 System.out.println("Jogada Executada");
+                jogo.mostraCampo(newGame);
             }
         }
     }

@@ -282,15 +282,13 @@ public class Jogo {
         return playerDestinyLine == currentBallLine && playerDestinyColumn == currentBallColumn;
     }
 
-    public boolean waitForMovement(DatagramPacket packet, DatagramSocket socket) {
-        try {
-            this.socket = socket;
-            this.packet = packet;
-            
-            this.socket.receive(this.packet);
+    public boolean waitForMovement() {
+        try {                   
+            socket.receive(packet);
 
             String message = new String(buffer, 0, packet.getLength());
-
+            
+            System.out.println("Salim");
             if (message.startsWith("movePlayer(") && message.endsWith(");")) {
                 char player = getPlayerOrMoveFromMessage(message, 0);
                 char movement = getPlayerOrMoveFromMessage(message, 1);

@@ -12,44 +12,12 @@ public class Client {
     private InetAddress address = null;
     private int porta = 1342;
 
-    public DatagramSocket getSocket() {
-        return socket;
-    }
-
-    public void setSocket(DatagramSocket socket) {
-        this.socket = socket;
-    }
-
-    public DatagramPacket getPacket() {
-        return packet;
-    }
-
-    public void setPacket(DatagramPacket packet) {
-        this.packet = packet;
-    }
-
-    public InetAddress getAddress() {
-        return address;
-    }
-
-    public void setAddress(InetAddress address) {
-        this.address = address;
-    }
-
-    public int getPorta() {
-        return porta;
-    }
-
-    public void setPorta(int porta) {
-        this.porta = porta;
-    }
-
     public void sendMessage(String message) {
         try {
             byte[] buffer = message.getBytes();
 
-            this.setPacket(new DatagramPacket(buffer, buffer.length, address, porta));
-            this.socket.send(getPacket());
+            this.packet = new DatagramPacket(buffer, buffer.length, address, porta);
+            this.socket.send(this.packet);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -57,30 +25,32 @@ public class Client {
 
     public void scanMovement() {
         try {
-            this.setSocket(new DatagramSocket());
-            address = InetAddress.getByName("177.44.248.11");
+            this.socket = new DatagramSocket();
+            address = InetAddress.getByName("10.0.0.174");
 
-            System.out.println("Escolha um movimento (W, A, S, D)");
+            System.out.println("Escolha um jogador e movimento (W, A, S, D)");
             Scanner scanner = new Scanner(System.in);
 
-//            while (scanner.hasNextLine()) {
-            String player = scanner.next();
-            String movement = scanner.next();
+            //while (scanner.hasNextLine()){
+                String player = scanner.next();
+                String movement = scanner.next();
 
-            if (!player.equals("") && !movement.equals("")) {
-                StringBuilder play = new StringBuilder();
-                play.append("movePlayer(");
-                play.append(player);
-                play.append(",");
-                play.append(movement);
-                play.append(");");
+                if (!player.equals("") && !movement.equals("")) {
+                    StringBuilder play = new StringBuilder();
+                    play.append("movePlayer(");
+                    play.append(player);
+                    play.append(",");
+                    play.append(movement);
+                    play.append(");");
 
-                sendMessage(play.toString());
-                System.out.println("Jogada executada: " + play.toString());
-            }
+                    sendMessage(play.toString());
+                    System.out.println("Jogada executada: " + play.toString());
+                }
 
-            Thread.sleep(500);
-//            }
+                Thread.sleep(500);
+            //}
+            
+            this.socket.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
